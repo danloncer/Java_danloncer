@@ -97,7 +97,6 @@ public class Homework4 {
         }
 
         System.out.print("\n");
-
         for (i = 10; i > 0; i--) {
             System.out.print(i + " ");
         }
