@@ -124,9 +124,9 @@ public class Homework3 {
         }
 
         if (salary > 80_000) {
-            limit = limit * percent1;
+            limit *= percent1;
         } else if (salary > 50_000) {
-            limit = limit * percent;
+            limit *= percent;
         }
             System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + limit + " рублей");
             System.out.println(); // Отступ для облегчения читаемости в консоле
@@ -141,22 +141,20 @@ public class Homework3 {
         double wantedSum = 330_000;
         double percent = 10;
         int countMonth = 12;
-        double maxEveryMonthPay;
+        double maxEveryMonthPay = salary / 2;      //Максимальный платеж
         if (age < 30 && age >= 23) {
             percent += 0.5;
         } else {
-            percent += 1;
+            percent ++ ;
         }
         if (salary > 80_000) {
             percent -= 0.7;
         }
         System.out.println("Ваша ставка равна " + percent);
-        double theResultingSum = 0;
-        theResultingSum = wantedSum + wantedSum / 100 * percent;    //Получившаяся сумма кредита
+        double theResultingSum = wantedSum + wantedSum / 100 * percent;    //Получившаяся сумма кредита
         System.out.println("Всего вы заплатите " + theResultingSum + " рублей"); //Всего потратит
         double monthlyFee = theResultingSum / countMonth;
         System.out.println("В месяц вы будете платить " + monthlyFee + " рублей"); //Ежемесячный платеж
-        maxEveryMonthPay = salary / 2;      //Максимальный платеж
         System.out.println("Максимальный ежемесячный платеж, считая вашу зарплату " + maxEveryMonthPay + " рублей");
         if (maxEveryMonthPay < monthlyFee) {
             System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxEveryMonthPay + " рублей." + " Платеж по кредиту " + monthlyFee + " рублей." + " Отказано.");
