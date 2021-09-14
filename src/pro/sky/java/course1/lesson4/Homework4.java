@@ -1,5 +1,7 @@
 package pro.sky.java.course1.lesson4;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Homework4 {
     public static void main(String[] args) {
         task1();
@@ -43,11 +45,11 @@ public class Homework4 {
     private static void task2() {
         System.out.println("Задача 2");
         System.out.print("\n");
-        int Friday = 6;
+        int friday = 6;
         for (int i = 1; i <= 31; i++) {
-            if (i == Friday) {
-                System.out.println("Сегодня пятница," + i + "-ое число. Необходимо подготовить отчет.");
-                Friday = Friday +7;
+            if (i == friday) {
+                System.out.println("Сегодня пятница," + friday + "-ое число. Необходимо подготовить отчет.");
+                friday = friday +7;
             }
         }
         System.out.print("\n");
@@ -67,22 +69,17 @@ public class Homework4 {
     }
 
     private static void task4() {
-        System.out.println("Задача 4");
+        System.out.print("Задача 4");
         System.out.print("\n");
         for (int i = 1; i <= 30; i++) {
-            if (i % 3 == 0 & i % 5 == 0) {
-                System.out.println(i + ":ping pong");
-                continue;
-            }
+            System.out.println();
+            System.out.print(i +":");
             if (i % 3 == 0) {
-                System.out.println(i +":ping");
-                continue;
+                System.out.print("ping ");
             }
             if (i % 5 == 0) {
-                System.out.println(i +":pong");
-                continue;
+                System.out.print("pong ");
             }
-            System.out.println(i +":");
         }
         System.out.print("\n");
     }
@@ -93,12 +90,12 @@ public class Homework4 {
         int num1 = 0;
         int num2 = 1;
         int num3;
-        for (int i = 0; i<=3 ; i++) {
+        System.out.print(num1 + " " + num2 + " ");
+        for (int i = 0; i<=7; i++) {
             num3 = num1 + num2;
-            System.out.print(num1 + " " + num2 + " ");
             System.out.print(num3 + " ");
-            num1 = num2 + num3;
-            num2 = num1 + num3;
+            num1 = num2;
+            num2 = num3;
         }
         System.out.print("\n");
     }
