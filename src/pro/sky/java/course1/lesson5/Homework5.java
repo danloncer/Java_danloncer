@@ -23,6 +23,8 @@ public class Homework5 {
 
         task4();
 
+        task5();
+
         task6();
 
         task7();
@@ -79,6 +81,22 @@ public class Homework5 {
         System.out.println(); // Отступ для облегчения читаемости в консоле
 
 
+    }
+
+    private static void task5() {
+        System.out.println("Задача 5");
+        System.out.println(); // Отступ для облегчения читаемости в консоле
+        int [][] matrix = new int[3][3];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (i == j) {
+                    matrix[i][j] = 1;
+                }
+                System.out.print(matrix[j][i] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println(); // Отступ для облегчения читаемости в консоле
     }
 
     private static void task6() {
