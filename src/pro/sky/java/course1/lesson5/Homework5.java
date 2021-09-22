@@ -25,6 +25,8 @@ public class Homework5 {
 
         task6();
 
+        task7();
+
         task8();
 
         task9();
@@ -92,14 +94,31 @@ public class Homework5 {
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
 
+    private static void task7() {
+        System.out.println("Задача 7");
+        System.out.println(); // Отступ для облегчения читаемости в консоле
+        int[] numbers = {5, 4, 3, 2, 1};
+        System.out.println(Arrays.toString(numbers));
+        for (int i = 0; i < numbers.length/2; i++) {
+            int temp = numbers[i];
+            numbers[i] = numbers[numbers.length - 1 - i];
+            numbers[numbers.length - 1 - i] = temp;
+        }
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(); // Отступ для облегчения читаемости в консоле
+    }
+
     private static void task8() {
         System.out.println("Задача 8");
         System.out.println(); // Отступ для облегчения читаемости в консоле
         int[] arr = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+        Arrays.sort(arr);
         for (int i = 0; i < arr.length; i++) {
-            if (arr[0] + arr[arr.length - 1 - i] == -2) {
-                System.out.println(arr[0] + "  " + arr[arr.length - 1 - i]);
-                break;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == -2) {
+                    System.out.println(arr[i] + "  " + arr[j]);
+                    break;
+                }
             }
         }
         System.out.println(); // Отступ для облегчения читаемости в консоле
@@ -110,10 +129,9 @@ public class Homework5 {
         System.out.println(); // Отступ для облегчения читаемости в консоле
         int[] arr = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i; j < arr.length; j++) {
+            for (int j = i+1; j < arr.length; j++) {
                 if (arr[i] + arr[j] == -2) {
-                    System.out.println(arr[i] + "  " + arr[j] + "  ");
-                    break;
+                    System.out.println(arr[i] + "  " + arr[j]);
                 }
             }
         }
