@@ -87,11 +87,13 @@ public class Homework5 {
         System.out.println("Задача 5");
         System.out.println(); // Отступ для облегчения читаемости в консоле
         int [][] matrix = new int[3][3];
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0, b = 0 ; i < matrix.length; i++, b++) {
+            System.out.println();
             for (int j = 0; j < matrix[0].length; j++) {
                 if (i == j) {
                     matrix[i][j] = 1;
                 }
+                matrix[matrix.length-1-b][i]=1;
                 System.out.print(matrix[j][i] + " ");
             }
             System.out.println();
@@ -135,11 +137,11 @@ public class Homework5 {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] + arr[j] == -2) {
                     System.out.println(arr[i] + "  " + arr[j]);
-                    break;
+                    System.out.println(); // Отступ для облегчения читаемости в консоле
+                    return;
                 }
             }
         }
-        System.out.println(); // Отступ для облегчения читаемости в консоле
     }
 
     private static void task9() {
