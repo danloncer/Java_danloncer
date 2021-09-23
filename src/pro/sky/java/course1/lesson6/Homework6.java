@@ -54,10 +54,8 @@ public class Homework6 {
         String fullName = "Иванов Семён Семёнович";
         if (fullName.contains("ё")) {
             fullName = fullName.replace("ё", "е");
-            System.out.println("Данные ФИО сотрудника – " + fullName);
-        } else {
-            System.out.println("Данные ФИО сотрудника – " + fullName);
         }
+        System.out.println("Данные ФИО сотрудника – " + fullName);
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
 
@@ -65,8 +63,9 @@ public class Homework6 {
         System.out.println("Задача 5");
         System.out.println(); // Отступ для облегчения читаемости в консоле
         String fullName = "Ivanov Ivan Ivanovich";
-        String firstName = fullName.substring(fullName.indexOf(' '), fullName.lastIndexOf(' '));
-        String lastName = fullName.substring(fullName.lastIndexOf(' '));
+        int lastIndex = fullName.lastIndexOf(' ');
+        String firstName = fullName.substring(fullName.indexOf(' '), lastIndex);
+        String lastName = fullName.substring(lastIndex);
         String middleName = fullName.replace(lastName, "");
         middleName = middleName.replace(firstName, "");
         System.out.println("Имя сотрудника –" + firstName);
@@ -83,7 +82,8 @@ public class Homework6 {
         symbols[0] = Character.toUpperCase(symbols[0]);
         for (int i = 0; i < symbols.length; i++) {
             if (symbols[i] == ' ') {
-                symbols[i + 1] = Character.toUpperCase(symbols[i + 1]);
+                if (symbols[i + 1] < symbols.length)
+                    symbols[i + 1] = Character.toUpperCase(symbols[i + 1]);
             }
         }
         fullName = new String(symbols);
@@ -96,12 +96,12 @@ public class Homework6 {
         System.out.println(); // Отступ для облегчения читаемости в консоле
         String first = "135";
         String second = "246";
-        StringBuilder third = new StringBuilder();
+        StringBuilder total = new StringBuilder();
         for (int i = 0; i < first.length(); i++) {
-            third.append(first.charAt(i));
-            third.append(second.charAt(i));
+            total.append(first.charAt(i));
+            total.append(second.charAt(i));
         }
-        System.out.println(third);
+        System.out.println(total);
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
 
