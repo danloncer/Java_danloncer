@@ -6,10 +6,11 @@ import java.util.Arrays;
 public class Homework7 {
 
 
-    public static void YearIsLimp(int year){
+    public static void defineYearLimp(int year){
         boolean yearIsLimp = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
         if (yearIsLimp) {
             System.out.println(year + " - високосный год");
+            System.out.println(); // Отступ для облегчения читаемости в консоле
             return;
         }
         System.out.println(year + " - невисокосный год");
@@ -17,9 +18,9 @@ public class Homework7 {
     }
 
 
-    public static void ClientOsAndVersion(int OC, int year) {
+    public static void defineOsVersion(int OS, int year) {
         int nowYear = LocalDate.now().getYear();
-        if (OC == 1) {
+        if (OS == 1) {
             if (year < nowYear) {
                 System.out.println("Установите Lite-версию приложения для iOS по ссылке");
             } else {
@@ -35,7 +36,7 @@ public class Homework7 {
     }
 
 
-    public static int CountDaysOfDelivery(int distance) {
+    public static int defineDaysOfDelivery(int distance) {
         int deliveryDays = 1; // minDeliveryDays
 
         if (distance >= 20) {
@@ -48,21 +49,20 @@ public class Homework7 {
     }
 
 
-    public static void DoubleSymbolsInString(String a) {
-        for (int i = 0; i < a.length(); i++) {
-            for (int j = i + 1; j < a.length(); j++) {
-                if (a.charAt(i) == a.charAt(j)) {
-                    System.out.print("В строке "+ "<" + a + ">" + " найден дубль: " + a.charAt(i));
+    public static void findDoubleSymbols(String problemString) {
+        for (int i = 0; i < problemString.length(); i++) {
+            for (int j = i + 1; j < problemString.length(); j++) {
+                if (problemString.charAt(i) == problemString.charAt(j)) {
+                    System.out.print("В строке "+ "<" + problemString + ">" + " найден дубль: " + problemString.charAt(i));
                     return;
-                } else {
-                    System.out.print("В строке нет дублей");
                 }
+                    System.out.print("В строке нет дублей");
             }
         }
     }
 
 
-    public static void ReverseMassive(int[] arr) {
+    public static void doReverseMassive(int[] arr) {
         for (int i = 0; i < arr.length / 2; i++) {
             int temp = arr[i];
             arr[i] = arr[arr.length - 1 - i];
@@ -81,7 +81,7 @@ public class Homework7 {
     }
 
 
-    public static int SummaElementsOfArray(int [] arr) {
+    public static int findSummaElementsOfArray(int [] arr) {
         int sum = 0;
         for (int j : arr) {
             sum += j;
@@ -90,11 +90,9 @@ public class Homework7 {
     }
 
 
-    public static float MiddleMeaning(int [] arr) {
-        float middleMeaning;
-        float sum = SummaElementsOfArray(arr);
-        middleMeaning = sum/arr.length;
-        return middleMeaning;
+    public static float findMiddleMeaning(int [] arr) {
+        float sum = findSummaElementsOfArray(arr);
+        return sum/arr.length;
     }
 
 
@@ -115,8 +113,8 @@ public class Homework7 {
     private static void task1() {
         System.out.println("Задача 1");
         System.out.println(); // Отступ для облегчения читаемости в консоле
-        YearIsLimp(2004);
-        YearIsLimp(2005);
+        defineYearLimp(2004);
+        defineYearLimp(2005);
         System.out.println("В первом случае год високосный");
         System.out.println("Во втором случае год невисокосный");
         System.out.println(); // Отступ для облегчения читаемости в консоле
@@ -125,10 +123,10 @@ public class Homework7 {
     private static void task2() {
         System.out.println("Задача 2");
         System.out.println(); // Отступ для облегчения читаемости в консоле
-        ClientOsAndVersion(1, 2021);
-        ClientOsAndVersion(1, 2018);
-        ClientOsAndVersion(0, 2021);
-        ClientOsAndVersion(0, 2018);
+        defineOsVersion(1, 2021);
+        defineOsVersion(1, 2018);
+        defineOsVersion(0, 2021);
+        defineOsVersion(0, 2018);
         System.out.println("В первом случае iOs и Default версия сайта");
         System.out.println("Во втором случае iOs и Lite версия сайта");
         System.out.println("В третьем случае Android и Default версия сайта");
@@ -139,7 +137,7 @@ public class Homework7 {
     private static void task3() {
         System.out.println("Задача 3");
         System.out.println(); // Отступ для облегчения читаемости в консоле
-        int deliveryDays = CountDaysOfDelivery(60);
+        int deliveryDays = defineDaysOfDelivery(60);
         System.out.println("Доставка будет через " + deliveryDays);
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
@@ -147,7 +145,7 @@ public class Homework7 {
     private static void task4() {
         System.out.println("Задача 4");
         System.out.println(); // Отступ для облегчения читаемости в консоле
-        DoubleSymbolsInString("aabccddefgghiijjkk");
+        findDoubleSymbols("aabccddefgghiijjkk");
         System.out.println(); // Отступ для облегчения читаемости в консоле
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
@@ -156,7 +154,7 @@ public class Homework7 {
         System.out.println("Задача 5");
         System.out.println(); // Отступ для облегчения читаемости в консоле
         int[] symbols = {3, 2, 1, 6, 5};
-        ReverseMassive(symbols);
+        doReverseMassive(symbols);
         System.out.println(Arrays.toString(symbols));
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
@@ -165,7 +163,7 @@ public class Homework7 {
         System.out.println("Задача 6");
         System.out.println(); // Отступ для облегчения читаемости в консоле
         int[] arr = generateRandomArray();
-        float middleMeaning = MiddleMeaning(arr);
+        float middleMeaning = findMiddleMeaning(arr);
         System.out.println("Среднее значение " + middleMeaning);
         System.out.println(); // Отступ для облегчения читаемости в консоле
     }
