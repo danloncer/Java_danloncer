@@ -24,6 +24,10 @@ public class Homework8 {
         appendBook(listOfBooks, crimeAndPunishment); //Проверка метода
 
         printBooks(listOfBooks);
+
+        Library newListOfBooks = new Library(10);
+        newListOfBooks.appendBook(crimeAndPunishment);
+        newListOfBooks.printBooks();
     }
 
 
