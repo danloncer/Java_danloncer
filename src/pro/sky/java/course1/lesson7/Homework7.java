@@ -56,9 +56,9 @@ public class Homework7 {
                     System.out.print("В строке "+ "<" + problemString + ">" + " найден дубль: " + problemString.charAt(i));
                     return;
                 }
-                    System.out.print("В строке нет дублей");
             }
         }
+        System.out.print("В строке нет дублей");
     }
 
 
