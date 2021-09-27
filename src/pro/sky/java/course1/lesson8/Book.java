@@ -2,8 +2,8 @@ package pro.sky.java.course1.lesson8;
 
 public class Book {
 
-    private String title;
-    private Author author;
+    private final String title;
+    private final Author author;
     private int yearPublication;
 
 

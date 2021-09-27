@@ -4,8 +4,8 @@ public class Homework8 {
     public static void main(String[] args) {
 //Задача 1
 
-        Author firstPublisher = new Author("Лев", "Толстой");
-        Author secondPublisher = new Author("Александр", "Пушкин");
+        Author firstPublisher = new Author("Lev", "Tolstoy");
+        Author secondPublisher = new Author("Alexander", "Pushkin");
 
         Book warAndPeace = new Book("War and Peace", firstPublisher, 1867);
         Book eugeneOnegin = new Book("Eugene Onegin", secondPublisher, 1833);
@@ -13,21 +13,29 @@ public class Homework8 {
         warAndPeace.setYearPublication(1870);
 
 //Задача 2
-
+        System.out.println("ЗАДАЧА 1");
         Book[] listOfBooks = new Book[5];
         listOfBooks[0] = warAndPeace;
         listOfBooks[1] = eugeneOnegin;
 
-        Author thirdPublisher = new Author("Федор", "Достоевский"); //Для проверки метода ниже
+        Author thirdPublisher = new Author("Fedor", "Dostoevsky"); //Для проверки метода ниже
         Book crimeAndPunishment = new Book("Crime and Punishment", thirdPublisher,1866); //Для проверки метода ниже
+
+        System.out.println("ЗАДАЧА 2");
 
         appendBook(listOfBooks, crimeAndPunishment); //Проверка метода
 
         printBooks(listOfBooks);
 
+        System.out.println("ЗАДАЧА 3");
+
         Library newListOfBooks = new Library(10);
         newListOfBooks.appendBook(crimeAndPunishment);
+        newListOfBooks.appendBook(eugeneOnegin);
+        newListOfBooks.appendBook(warAndPeace);
         newListOfBooks.printBooks();
+        newListOfBooks.getInformationAboutBook("Eugene Onegin");
+        newListOfBooks.editYearOfBook("Eugene Onegin", 1850);
     }
 
 
@@ -38,8 +46,6 @@ public class Homework8 {
                 System.out.println();
                 System.out.println("Книга добавлена в ячейку " + i);
                 return;
-            } else {
-                System.out.println("Ячейка " + i + " заполнена");
             }
         }
     }
@@ -62,5 +68,6 @@ public class Homework8 {
                 System.out.println("Ячейка пуста");
             }
         }
+        System.out.println();
     }
 }

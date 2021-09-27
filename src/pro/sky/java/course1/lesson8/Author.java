@@ -2,8 +2,8 @@ package pro.sky.java.course1.lesson8;
 
 public class Author {
 
-    private String firstName;
-    private String middleName;
+    private final String firstName;
+    private final String middleName;
 
 
 

@@ -2,11 +2,10 @@ package pro.sky.java.course1.lesson8;
 
 public class Library {
     private Book[] listOfBooks;
-    private int range;
 
 
     public Library(int range) {
-        Book[] listOfBooks = new Book[range];
+        this.listOfBooks = new Book[range];
     }
 
     public void appendBook(Book book) {
@@ -16,15 +15,13 @@ public class Library {
                 System.out.println();
                 System.out.println("Книга добавлена в ячейку " + i);
                 return;
-            } else {
-                System.out.println("Ячейка " + i + " заполнена");
             }
         }
     }
 
 
     public void printBooks () {
-        for (Book book : this.listOfBooks) {
+        for (Book book :listOfBooks) {
             if (book != null) {
                 System.out.println();
                 System.out.print(book.getAuthor().getFirstName());
@@ -40,7 +37,31 @@ public class Library {
                 System.out.println("Ячейка пуста");
             }
         }
+        System.out.println();
     }
 
+
+    public void getInformationAboutBook(String name) {
+        for (int i = 0; i < this.listOfBooks.length; i++) {
+            if (this.listOfBooks[i].getTitle().equals(name)) {
+                System.out.println(this.listOfBooks[i].getTitle() + " by " + this.listOfBooks[i].getAuthor().getMiddleName() + this.listOfBooks[i].getAuthor().getFirstName() + " was published in " + this.listOfBooks[i].getYearPublication());
+                System.out.println();
+                return;
+            }
+        }
+        System.out.println("Данной книги нет");
+        System.out.println();
+    }
+
+    public void editYearOfBook(String name, int newYear) {
+        for (int i = 0; i < this.listOfBooks.length; i++) {
+            if (this.listOfBooks[i].getTitle().equals(name)) {
+                System.out.print("Год изменен с " + this.listOfBooks[i].getYearPublication());
+                this.listOfBooks[i].setYearPublication(newYear);
+                System.out.print(" на " + this.listOfBooks[i].getYearPublication());
+                return;
+            }
+        }
+    }
 
 }
