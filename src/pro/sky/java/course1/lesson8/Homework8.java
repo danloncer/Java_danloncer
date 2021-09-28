@@ -48,6 +48,8 @@ public class Homework8 {
                 return;
             }
         }
+        System.out.println("Книга не добавлена, так как нет свободных ячеек");
+        System.out.println();
     }
 
 
@@ -63,9 +65,6 @@ public class Homework8 {
                 System.out.print(": ");
                 System.out.print(book.getYearPublication());
                 System.out.println();
-            } else {
-                System.out.println();
-                System.out.println("Ячейка пуста");
             }
         }
         System.out.println();

@@ -10,13 +10,15 @@ public class Library {
 
     public void appendBook(Book book) {
         for (int i = 0; i < this.listOfBooks.length; i++) {
-            if (this.listOfBooks[i] == null) {
-                this.listOfBooks[i] = book;
+            if (listOfBooks[i] == null) {
+                listOfBooks[i] = book;
                 System.out.println();
                 System.out.println("Книга добавлена в ячейку " + i);
                 return;
             }
         }
+        System.out.println("Книга не добавлена, так как нет свободных ячеек");
+        System.out.println();
     }
 
 
@@ -32,9 +34,6 @@ public class Library {
                 System.out.print(": ");
                 System.out.print(book.getYearPublication());
                 System.out.println();
-            } else {
-                System.out.println();
-                System.out.println("Ячейка пуста");
             }
         }
         System.out.println();
@@ -42,9 +41,9 @@ public class Library {
 
 
     public void getInformationAboutBook(String name) {
-        for (int i = 0; i < this.listOfBooks.length; i++) {
-            if (this.listOfBooks[i].getTitle().equals(name)) {
-                System.out.println(this.listOfBooks[i].getTitle() + " by " + this.listOfBooks[i].getAuthor().getMiddleName() + this.listOfBooks[i].getAuthor().getFirstName() + " was published in " + this.listOfBooks[i].getYearPublication());
+        for (int i = 0; i < listOfBooks.length; i++) {
+            if (listOfBooks[i].getTitle().equals(name)) {
+                System.out.println(listOfBooks[i].getTitle() + " by " + listOfBooks[i].getAuthor().getMiddleName() + listOfBooks[i].getAuthor().getFirstName() + " was published in " + listOfBooks[i].getYearPublication());
                 System.out.println();
                 return;
             }
@@ -54,11 +53,11 @@ public class Library {
     }
 
     public void editYearOfBook(String name, int newYear) {
-        for (int i = 0; i < this.listOfBooks.length; i++) {
-            if (this.listOfBooks[i].getTitle().equals(name)) {
-                System.out.print("Год изменен с " + this.listOfBooks[i].getYearPublication());
-                this.listOfBooks[i].setYearPublication(newYear);
-                System.out.print(" на " + this.listOfBooks[i].getYearPublication());
+        for (int i = 0; i < listOfBooks.length; i++) {
+            if (listOfBooks[i].getTitle().equals(name)) {
+                System.out.print("Год изменен с " + listOfBooks[i].getYearPublication());
+                listOfBooks[i].setYearPublication(newYear);
+                System.out.print(" на " + listOfBooks[i].getYearPublication());
                 return;
             }
         }
