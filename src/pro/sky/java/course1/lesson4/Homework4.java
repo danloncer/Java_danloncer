@@ -1,7 +1,5 @@
 package pro.sky.java.course1.lesson4;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Homework4 {
     public static void main(String[] args) {
         task1();
