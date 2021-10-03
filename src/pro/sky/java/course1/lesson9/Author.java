@@ -15,11 +15,11 @@ public class Author {
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return firstName;
     }
 
     public String getMiddleName() {
-        return this.middleName;
+        return middleName;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Author {
             return false;
         }
         Author c2 = (Author) other;
-        return getFirstName().equals(c2.getFirstName()) && getMiddleName().equals(c2.getMiddleName());
+        return firstName.equals(c2.firstName) && middleName.equals(c2.middleName);
     }
 
     public int hashCode() {

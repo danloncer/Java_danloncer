@@ -33,7 +33,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book: " + title + " by " + author;
+        return "Book: " + title + " by " + author + ": published in " + yearPublication;
     }
 
     public boolean equals(Object other) {
@@ -41,7 +41,7 @@ public class Book {
             return false;
         }
         Book c3 = (Book) other;
-        return getTitle().equals(c3.getTitle()) && getAuthor().equals(c3.getAuthor()) && getYearPublication() == c3.getYearPublication();
+        return title.equals(c3.title) && author.equals(c3.author) && yearPublication == c3.yearPublication;
     }
 
     public int hashCode() {
