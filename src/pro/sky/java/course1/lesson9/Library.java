@@ -32,7 +32,6 @@ public class Library {
         for (Book book :listOfBooks) {
             if (book != null) {
                 System.out.println(book);
-                
             }
         }
         System.out.println();
