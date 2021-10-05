@@ -3,9 +3,9 @@ package pro.sky.java.course1.lesson9;
 public class Homework9 {
     public static void main(String[] args) {
         System.out.println("Authors:");
-        Author stephenKing = new Author("Stephen", "King");
-        Author stephenKing2 = new Author("Stephen", "King");
-        Author levTolstoy = new Author("Lev", "Tolstoy");
+        Author stephenKing = new Author("Stephen", "King", "lastName");
+        Author stephenKing2 = new Author("Stephen", "King", "lastName");
+        Author levTolstoy = new Author("Lev", "Tolstoy", "???");
         System.out.println("Author copies equal: " + stephenKing.equals(stephenKing2));
         System.out.println("Author copies equal by hashCode: " + (stephenKing.hashCode() == stephenKing2.hashCode()));
         System.out.println("Authors equal: " + stephenKing.equals(levTolstoy));

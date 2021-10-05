@@ -1,13 +1,14 @@
 package pro.sky.java.course1.lesson9;
 
 public class Library {
-    private Book[] listOfBooks;
+    private final Book[] listOfBooks;
 
 
     public Library(int range) {
         listOfBooks = new Book[range];
     }
 
+    @Override
     public String toString() {
         StringBuilder newListOfBooks = new StringBuilder();
         for (int i = 0; i < listOfBooks.length; i++) {
