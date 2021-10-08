@@ -80,17 +80,14 @@ public class EmployeeBook {
     }
 
     public void printListOfMembersInDepartments() {
-        for (int i = 0; i < listBusiness.length; i++) {
-            if (listBusiness[i] == null) {
-                continue;
-            }
-            System.out.println("\n" + "Department: " + listBusiness[i].getDepartment());
-            for (int j = 0; j < listBusiness.length; j++) {
-                if (listBusiness[j] == null) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("\n" + "Department: " + i);
+            for (Employee business : listBusiness) {
+                if (business == null) {
                     continue;
                 }
-                if (listBusiness[i].getDepartment() == listBusiness[j].getDepartment()) {
-                    System.out.println("Name: " + listBusiness[j].getFirstName() + " " + listBusiness[j].getMiddleName());
+                if (business.getDepartment() == i) {
+                    System.out.println("Name: " + business.getFirstName() + " " + business.getMiddleName());
                 }
             }
         }
@@ -122,7 +119,7 @@ public class EmployeeBook {
     }
 
     public float findMinSalary() {
-        float min = 99999999;
+        float min = findMaxSalary();
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
