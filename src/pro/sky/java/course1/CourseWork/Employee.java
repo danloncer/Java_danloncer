@@ -11,7 +11,7 @@ public class Employee {
     private final String middleName;
     private int department;
     private float cash;
-    private static int counter = 1;
+    private static int counter = 0;
     private final int id;
 
 
@@ -21,15 +21,9 @@ public class Employee {
     public Employee (String firstName, String middleName, int department, float cash) {
         this.firstName = firstName;
         this.middleName = middleName;
-        if (department < 5 && department > 0) {
-            this.department = department;
-        } else {
-            throw new RuntimeException("Отдел не должен быть больше 5 и не меньше 0");
-        }
+        setDepartment(department);
         this.cash = cash;
-        this.id = Employee.counter;
-        counter++;
-
+        this.id = counter++;
     }
 
 
@@ -65,7 +59,11 @@ public class Employee {
     }
 
     public void setDepartment (int department) {
-        this.department = department;
+        if (department < 5 && department > 0) {
+            this.department = department;
+        } else {
+            throw new RuntimeException("Отдел не должен быть больше 5 и не меньше 0");
+        }
     }
 
 

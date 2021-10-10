@@ -2,7 +2,7 @@ package pro.sky.java.course1.CourseWork;
 
 public class EmployeeBook {
     private final Employee[] listBusiness = new Employee[10];
-
+    private static float MAX_VALUE = 99999999999F;
 
     //main methods for active with Employee list
 
@@ -18,23 +18,31 @@ public class EmployeeBook {
         System.out.println("Нет свободных мест!");
     }
 
-    public void deleteMember (String firstName, String middleName, int id) {
+    public void deleteMember (String firstName, String middleName) {
         for (int i = 0; i < listBusiness.length; i++) {
-            if (listBusiness[i].getFirstName().equals(firstName) && listBusiness[i].getMiddleName().equals(middleName) && listBusiness[i].getId() == id) {
+            if (listBusiness[i] == null) {
+                continue;
+            }
+            if (listBusiness[i].getFirstName().equals(firstName) && listBusiness[i].getMiddleName().equals(middleName)) {
                 listBusiness[i] = null;
                 System.out.println("Сотрудник удален из ячейки" + " " + i);
                 return;
             }
         }
+        System.out.println("Сотрудник не найден!");
     }
 
     public void deleteMember (int id) {
         for (int i = 0; i < listBusiness.length; i++) {
+            if (listBusiness[i] == null) {
+                continue;
+            }
             if (listBusiness[i].getId() == id) {
                 listBusiness[i] = null;
                 return;
             }
         }
+        System.out.println("Сотрудник не найден!");
     }
 
     public void changeCash (String firstName, String middleName, float cash) {
@@ -62,7 +70,7 @@ public class EmployeeBook {
                 return;
             }
         }
-        System.out.println("Отдел успешно изменен.");
+        System.out.println("Сотрудник не найден!");
     }
 
     public void changeDepartment (int id, int department) {
@@ -76,10 +84,10 @@ public class EmployeeBook {
                 return;
             }
         }
-        System.out.println("Отдел успешно изменен.");
+        System.out.println("Сотрудник не найден!");
     }
 
-    public void printListOfMembersInDepartments() {
+    public void printEmployeeInDep() {
         for (int i = 1; i <= 5; i++) {
             System.out.println("\n" + "Department: " + i);
             for (Employee business : listBusiness) {
@@ -96,7 +104,7 @@ public class EmployeeBook {
 
     //different methods for Employee list
 
-    public void printListBusinessMembers() {
+    public void printEmployeeList() {
         System.out.println("\n" + "Employee: ");
         for (Employee business : listBusiness) {
             if (business == null) {
@@ -118,8 +126,9 @@ public class EmployeeBook {
         return sum;
     }
 
-    public float findMinSalary() {
-        float min = findMaxSalary();
+    public void findMinSalary() {
+        float min = MAX_VALUE;
+        StringBuilder member = new StringBuilder();
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
@@ -128,10 +137,17 @@ public class EmployeeBook {
                 min = business.getCash();
             }
         }
-        return min;
+        for (Employee business : listBusiness) {
+            if (business == null) {
+                continue;
+            }
+            if (min == business.getCash()) {
+                System.out.println("Минимальная зарплата у " + business.getFirstName() + " " + business.getMiddleName());
+            }
+        }
     }
 
-    public float findMaxSalary() {
+    public void findMaxSalary() {
         float max = -1;
         for (Employee business : listBusiness) {
             if (business == null) {
@@ -141,7 +157,14 @@ public class EmployeeBook {
                 max = business.getCash();
             }
         }
-        return max;
+        for (Employee business : listBusiness) {
+            if (business == null) {
+                continue;
+            }
+            if (max == business.getCash()) {
+                System.out.println("Максимальная зарплата у " + business.getFirstName() + " " + business.getMiddleName());
+            }
+        }
     }
 
     public float findMiddleSalary() {
@@ -154,7 +177,7 @@ public class EmployeeBook {
         return calculateSalaryCosts() / countMembers;
     }
 
-    public void printNamesOfMembers() {
+    public void printNamesEmployee() {
         System.out.println("\n" + "Names all members: ");
         for (int i = 0; i < listBusiness.length; i++) {
             if (listBusiness[i] == null) {
@@ -165,21 +188,19 @@ public class EmployeeBook {
     }
 
     public void modifiedSalaries(float percent) {
-        percent = (percent / 100) + 1;
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
             }
-            float a = business.getCash() * percent;
-            business.setCash(a);
+            business.setCash(business.getCash() * (percent/100+1));
         }
     }
 
 
     //different methods for Employee list (deportment)
 
-    public float findMinSalaryInDepartment(int department) {
-        float min = 99999999999f;
+    public void findMinSalaryInDep(int department) {
+        float min = MAX_VALUE;
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
@@ -190,11 +211,18 @@ public class EmployeeBook {
                 }
             }
         }
-        return min;
+        for (Employee business : listBusiness) {
+            if (business == null) {
+                continue;
+            }
+            if (min == business.getCash()) {
+                System.out.println("Минимальная зарплата в отделе у " + business.getFirstName() + " " + business.getMiddleName());
+            }
+        }
     }
 
 
-    public float findMaxSalaryInDepartment(int department) {
+    public void findMaxSalaryInDep(int department) {
         float max = -1f;
         for (Employee business : listBusiness) {
             if (business == null) {
@@ -206,10 +234,17 @@ public class EmployeeBook {
                 }
             }
         }
-        return max;
+        for (Employee business : listBusiness) {
+            if (business == null) {
+                continue;
+            }
+            if (max == business.getCash()) {
+                System.out.println("Максимальная зарплата в отделе у " + business.getFirstName() + " " + business.getMiddleName());
+            }
+        }
     }
 
-    public float calculateSalaryCostsInDepartment(int department) {
+    public float calculateSalaryCostsInDep(int department) {
         float sum = 0f;
         for (Employee business : listBusiness) {
             if (business == null) {
@@ -222,7 +257,7 @@ public class EmployeeBook {
         return sum;
     }
 
-    public float findMiddleSalaryInDepartment(int department) {
+    public float findMiddleSalaryInDep(int department) {
         int countMembers = 0;
         for (Employee business : listBusiness) {
             if (business == null) {
@@ -232,36 +267,34 @@ public class EmployeeBook {
                 countMembers++;
             }
         }
-        return calculateSalaryCostsInDepartment(department) / countMembers;
+        return calculateSalaryCostsInDep(department) / countMembers;
     }
 
     public void modifiedSalariesInDepartment(float percent, int department) {
-        percent = (percent / 100) + 1;
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
             }
             if (business.getDepartment() == department) {
-                float a = business.getCash() * percent;
-                business.setCash(a);
+                business.setCash(business.getCash() * (percent/100+1));
             }
         }
     }
 
-    public void printListBusinessMembersInDepartment(int department) {
+    public void printDepartment (int department) {
         System.out.println("\n" + "Department: " + department);
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
             }
             if (business.getDepartment() == department) {
-                System.out.println("Name: " + business.getFirstName() + " " + business.getMiddleName() + " Cash: " + business.getCash() + " Id: " + business.getId());
+                System.out.println(business);
             }
         }
         System.out.println();
     }
 
-    public void findPeopleWithSalariesBelowTheThreshold(float threshold) {
+    public void findEmployeeWithSalariesBelowTheThreshold(float threshold) {
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
@@ -273,7 +306,7 @@ public class EmployeeBook {
         System.out.println();
     }
 
-    public void findPeopleWithSalariesAboveTheThreshold(float threshold) {
+    public void findEmployeeWithSalariesAboveTheThreshold(float threshold) {
         for (Employee business : listBusiness) {
             if (business == null) {
                 continue;
