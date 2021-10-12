@@ -8,7 +8,7 @@ public class Employee {
 
 
     private final String firstName;
-    private final String middleName;
+    private final String lastName;
     private int department;
     private float cash;
     private static int counter = 0;
@@ -18,9 +18,9 @@ public class Employee {
 
     //Constructor
 
-    public Employee (String firstName, String middleName, int department, float cash) {
+    public Employee (String firstName, String lastName, int department, float cash) {
         this.firstName = firstName;
-        this.middleName = middleName;
+        this.lastName = lastName;
         setDepartment(department);
         this.cash = cash;
         this.id = counter++;
@@ -34,8 +34,8 @@ public class Employee {
         return firstName;
     }
 
-    public String getMiddleName() {
-        return middleName;
+    public String getlastName() {
+        return lastName;
     }
 
     public int getDepartment() {
@@ -62,7 +62,7 @@ public class Employee {
         if (department < 5 && department > 0) {
             this.department = department;
         } else {
-            throw new RuntimeException("Отдел не должен быть больше 5 и не меньше 0");
+            throw new IllegalArgumentException("Отдел не должен быть больше 5 и не меньше 0");
         }
     }
 
@@ -72,7 +72,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Name: " + firstName + " " + middleName + " :Department: " + department + " :Cash: " + cash + " :Id: " +id;
+        return "Name: " + firstName + " " + lastName + " :Department: " + department + " :Cash: " + cash + " :Id: " +id;
     }
 
 }
