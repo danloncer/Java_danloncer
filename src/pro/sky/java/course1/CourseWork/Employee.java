@@ -11,7 +11,7 @@ public class Employee {
     private final String lastName;
     private int department;
     private float cash;
-    private static int counter = 0;
+    private static int counter;
     private final int id;
 
 

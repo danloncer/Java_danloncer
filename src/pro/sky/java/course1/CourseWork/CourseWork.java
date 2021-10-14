@@ -15,14 +15,14 @@ public class CourseWork {
         employeeBook.deleteMember("Kolya", "Dorvanov");
         employeeBook.printEmployeeList();
         System.out.println("Затраты на зарплату: " + employeeBook.calculateSalaryCosts());
-        System.out.println("Минимальная зарплата у: " + employeeBook.findMinSalary());
-        System.out.println("Максимальная зарплата у: " + employeeBook.findMaxSalary());
+        System.out.println("Минимальная зарплата у === " + employeeBook.findMinSalary());
+        System.out.println("Максимальная зарплата у === " + employeeBook.findMaxSalary());
         System.out.println("Средняя зарплата: " + employeeBook.findMiddleSalary());
         employeeBook.printNamesEmployee();
         employeeBook.modifiedSalaries(50);
         employeeBook.printEmployeeList();
-        System.out.println("Минимальная зарплата в выбранном отделе у: " + employeeBook.findMinSalaryInDep(1));
-        System.out.println("Максимальная зарплата в выбранном отделе у: " + employeeBook.findMaxSalaryInDep(1));
+        System.out.println("Минимальная зарплата в выбранном отделе у === " + employeeBook.findMinSalaryInDep(1));
+        System.out.println("Максимальная зарплата в выбранном отделе у === " + employeeBook.findMaxSalaryInDep(1));
         System.out.println("Затраты на зарплату в отделе: " + employeeBook.calculateSalaryCostsInDep(1));
         System.out.println("Средняя зарплата в отделе: " + employeeBook.findMiddleSalaryInDep(1));
         employeeBook.modifiedSalariesInDepartment(10, 1);
