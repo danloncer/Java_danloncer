@@ -10,7 +10,4 @@ public class Car extends SchemeTransport implements Transport {
         System.out.println("Проверяем двигатель");
     }
 
-    public void checkTrailer() {
-        System.out.println("У машины нет прицепа");
-    }
 }

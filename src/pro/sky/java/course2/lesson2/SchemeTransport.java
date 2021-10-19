@@ -15,12 +15,7 @@ public abstract class SchemeTransport implements Transport {
         for (int i = 0; i < getWheelsCount(); i++) {
             updateTyre();
         }
-        checkEngine();
-        checkTrailer();
     }
-
-    protected abstract void checkTrailer();
-    protected abstract void checkEngine();
 
     public void updateTyre() {
         System.out.println("Меняем покрышку");
