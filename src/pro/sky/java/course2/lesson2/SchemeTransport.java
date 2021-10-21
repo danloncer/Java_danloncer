@@ -15,6 +15,21 @@ public abstract class SchemeTransport implements Transport {
         for (int i = 0; i < getWheelsCount(); i++) {
             updateTyre();
         }
+        if (getWheelsCount() > 2 && getWheelsCount() <= 4) {
+            checkEngine();
+        }
+        if (getWheelsCount() > 4) {
+            checkTrailer();
+        }
+
+    }
+
+    private void checkTrailer() {
+        System.out.println("Проверяем прицеп");
+    }
+
+    private void checkEngine() {
+        System.out.println("Проверяем двигатель");
     }
 
     public void updateTyre() {
